@@ -1,0 +1,8 @@
+{
+  "homeTitle": "Inicio",
+  "user": "capacitacionecom",
+  "password": "capacita123",
+  "failUser": "fail@test.com",
+  "failPassword": "supercalifragilisticexpialidocious",
+  "loginMessageIncorrect": "El usuario o la contraseña no es correcta."
+}
