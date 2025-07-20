@@ -21,3 +21,5 @@ import "./commands";
 import "cypress-xpath";
 import "cypress-plugin-api";
 import "cypress-mochawesome-reporter/register";
+// @ts-ignore
+import "@cypress/grep";

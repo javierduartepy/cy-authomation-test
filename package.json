@@ -5,18 +5,21 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "test:report": "cypress run && node report-name.js",
+    "test:regression": "cypress run --env grepTags='regression' grepOmitFiltered=true && node report-name.js",
     "test:e2e:ui": "npm run cy:open",
     "test:e2e": "cypress open --e2e --browser chrome",
     "test": "npm run cy:open"
   },
   "keywords": [
-    "cypres",
+    "cypress",
     "typescript",
     "mocha",
     "testing"
   ],
   "license": "ISC",
   "devDependencies": {
+    "@cypress/grep": "^4.1.0",
     "cypress": "^13.8.1",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-multi-reporters": "^1.6.4",
@@ -27,6 +30,5 @@
     "mochawesome-report-generator": "^6.2.0",
     "rimraf": "^5.0.7",
     "typescript": "^5.4.5"
-  },
-  "dependencies": {}
+  }
 }
