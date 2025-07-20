@@ -1,22 +1,25 @@
 import { Login } from "../../interfaces";
 import { HomePage, LoginPage } from "../../page-models";
+const loginPage = new LoginPage();
+const homePage = new HomePage();
 
-describe("Testing de la pagina de Inicio", () => {
-  const homePage = new HomePage();
-  let loginData: Login;
-  before(() => {
-    cy.fixture<Login>("loginData.json").then((user) => {
-      loginData = user;
-    });
+let loginData: Login;
+before(() => {});
+
+beforeEach(() => {
+  cy.fixture<Login>("loginData.json").then((user) => {
+    loginData = user;
+    loginPage.doLogin(loginData);
+    loginPage.navigateToHome();
   });
+});
 
-  it("Verificar que funcione el boton de perfil de usuario", () => {
-    cy.login(loginData.user, loginData.password);
+describe("Testing de la pagina de Inicio", { tags: ["regression"] }, () => {
+  it("Verificar que exista el boton de perfil de usuario", () => {
     homePage.profileButton().should("be.visible").click();
   });
 
   it("Verificar que funcione el boton de perfil de usuario", () => {
-    cy.login(loginData.user, loginData.password);
     homePage.profileButton().click();
     homePage.usernameLabel().should("contain.text", loginData.user);
   });
