@@ -7,11 +7,6 @@ export class LoginPage {
     cy.visit(`${url}/ingresosvillaangela/servlet/com.ecom.gamexamplelogin`);
   }
 
-  navigateToHome() {
-    const url = Cypress.env("host");
-    cy.visit(`${url}/ingresosvillaangela/servlet/com.ecom.wwpbaseobjects.home`);
-  }
-
   doLogin(user: Login) {
     cy.session([`Usuario Logeado: ${user.user}`], () => {
       this.navigateToLogin();

@@ -10,7 +10,7 @@ beforeEach(() => {
   cy.fixture<Login>("loginData.json").then((user) => {
     loginData = user;
     loginPage.doLogin(loginData);
-    loginPage.navigateToHome();
+    homePage.navigateToHome();
   });
 });
 
